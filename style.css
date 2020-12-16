@@ -1,0 +1,73 @@
+/*
+	Theme Name: Fancy Lab
+	Theme URI: http://edantasn.github.io/
+	Author Name: Eduardo Dantas
+	Author URI: http://edantasn.github.io/
+	Description: Tema teste para Pilot Wolf Band
+	Version: 1.0
+	Text Domain: fancy-lab
+	License: GNU General Public License v2 or later
+	License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+	Tags: Band, Rock, Pilot Wolf
+*/
+
+.top-bar {
+	height: 70px;
+}
+
+.main-menu {
+	padding: 0;
+}
+
+.main-menu ul {
+	border-radius: 0;
+	font-size: 18px;
+	font-weight: 500;
+	margin: 0;
+	padding: 0;
+}
+
+.main-menu ul li {
+	display: inline;
+	margin: 0 5px 0 0;
+}
+
+.main-menu ul li:last-child {
+	margin: 0;
+}
+
+.footer-menu ul,
+.footer-widgets ul {
+	font-size: 16px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.footer-menu ul li {
+	display: inline;
+	margin: 0 10px 0 0;
+}
+
+.footer-menu ul li:last-child {
+	margin: 0;
+}
+
+.footer-menu ul li a {
+	color: #939393;
+	text-decoration: none;
+}
+
+.footer-menu ul li.current-menu-item a {
+	color: #ff9292;
+}
+
+
+.size-auto, 
+.size-full,
+.size-large,
+.size-medium,
+.size-thumbnail {
+	max-width: 100%;
+	height: auto;
+}
