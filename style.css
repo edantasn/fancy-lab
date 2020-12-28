@@ -11,6 +11,10 @@
 	Tags: Band, Rock, Pilot Wolf
 */
 
+body{
+    font-family: 'Rajdhani', sans-serif;
+}
+
 /* Header - Main Menu */
 .main-menu{
     padding: 0;
@@ -31,6 +35,31 @@
 
 .main-menu ul li:last-child{ 
     margin: 0; 
+}
+
+.main-menu .dropdown:hover>.dropdown-menu, 
+.main-menu .dropup:hover>.dropdown-menu  {
+  display: block;
+}
+
+/* Search Form */
+
+.search-form button{
+    background-image: url('img/search.svg');
+    height: 23px;
+    width: 23px;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none; 
+}
+
+.search-form input[type="search"]{
+    background-color: #fff;
+    border: none;
+    font-weight: 500;
+    font-size: 110%;
+    padding: 0.3rem 1rem;
+    margin-right: 0.3rem;
 }
 
 /* Footer - Footer Menu */
@@ -61,6 +90,24 @@
 
 
 /* WooCommerce */
+
+/* Grid System */
+
+.woocommerce .col2-set .col-1,
+.woocommerce .col2-set .col-2{
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+@media all and (max-width: 767px) {
+
+    .woocommerce .col2-set .col-1,
+    .woocommerce .col2-set .col-2{
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+}
 
 /* Shop */
 
@@ -281,9 +328,27 @@
     background-color: #ffe252;
 }
 
+/* Cart */
+
 .woocommerce-cart table.cart td.actions .coupon .input-text{
     width: 150px;
 }
+
+/* Checkout */
+.woocommerce form .form-row {
+    display: block;
+}
+.woocommerce-checkout #customer_details{
+    margin-bottom: 20px;
+}
+.woocommerce table.shop_table{
+    border-collapse: collapse;
+}
+.woocommerce table.shop_table thead{
+    background-color: #D2335B;
+    color: #fff;
+}
+
 
 /* General */
 .size-auto, 
@@ -293,4 +358,21 @@
 .size-thumbnail {
     max-width: 100%;
     height: auto;
+}
+.cart .cart-icon {
+    background: url('img/cart.svg');
+    height: 25px;
+    width: 25px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    vertical-align: bottom;
+}
+.cart .items{
+    background: #CA2424;
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-block;
+    text-align: center;
 }
