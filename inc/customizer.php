@@ -6,7 +6,7 @@
  */
 
 function fancy_lab_customizer( $wp_customize ) {
-	//Copyright Section
+	//Campo personalizado para o Copyright do rodapé
 	$wp_customize->add_section(
 		'sec_copyright', array(
 			'title'       => 'Copyright Settings',
@@ -14,24 +14,24 @@ function fancy_lab_customizer( $wp_customize ) {
 		)
 	);
 
-		//Campo 1 - Texto
-		$wp_customize->add_setting(
-			'set_copyright', array(
-				'type'              => 'theme_mod',
-				'default'           => '',
-				'sanitize_callback' => 'sanitize_text_field'
-			)
-		);
+	//Campo 1 - Texto
+	$wp_customize->add_setting(
+		'set_copyright', array(
+			'type'              => 'theme_mod',
+			'default'           => '',
+			'sanitize_callback' => 'sanitize_text_field'
+		)
+	);
 
-		//Campo de ligação entre o controle e a setting
-		$wp_customize->add_control(
-			'set_copyright', array(
-				'label'       => 'Copyright',
-				'description' => 'Digite seu copyright',
-				'section'     => 'sec_copyright',
-				'type'		  => 'text'
-			)
-		);
+	//Campo de ligação entre o controle e a setting
+	$wp_customize->add_control(
+		'set_copyright', array(
+			'label'       => 'Copyright',
+			'description' => 'Digite seu copyright',
+			'section'     => 'sec_copyright',
+			'type'		  => 'text'
+		)
+	);
 
 	/********************************************/
 	//Slider Section
@@ -100,6 +100,126 @@ function fancy_lab_customizer( $wp_customize ) {
 			)
 		);
 	}
+
+	/********************************************/
+	// Tornando as opções de produtos da PÁGINA INICIAL customizáveis pelo usuário
+	$wp_customize->add_section(
+		'sec_home_page', array(
+			'title'       => 'Produtos Página Inicial',
+			'description' => 'Seção Página Inicial'
+		)
+	);
+
+	$wp_customize->add_setting(
+		'set_popular_max_num', array(
+			'type'              => 'theme_mod',
+			'default'           => '',
+			'sanitize_callback' => 'absint'
+		)
+	);
+
+	$wp_customize->add_control(
+		'set_popular_max_num', array(
+			'label'       => 'Qtd Produtos Populares',
+			'description' => 'Quantidade máxima de Produtos',
+			'section'     => 'sec_home_page',
+			'type'		  => 'number'
+		)
+	);
+
+	//Colunas
+	$wp_customize->add_setting(
+		'set_popular_max_col', array(
+			'type'              => 'theme_mod',
+			'default'           => '',
+			'sanitize_callback' => 'absint'
+		)
+	);
+
+	$wp_customize->add_control(
+		'set_popular_max_col', array(
+			'label'       => 'Produtos Populares - Colunas',
+			'description' => 'Quantidade máxima de colunas',
+			'section'     => 'sec_home_page',
+			'type'		  => 'number'
+		)
+	);
+
+	// Lançamentos
+	$wp_customize->add_setting(
+		'set_lanc_max_num', array(
+			'type'              => 'theme_mod',
+			'default'           => '',
+			'sanitize_callback' => 'absint'
+		)
+	);
+
+	$wp_customize->add_control(
+		'set_lanc_max_num', array(
+			'label'       => 'Qtd Produtos Novos',
+			'description' => 'Quantidade máxima de produtos',
+			'section'     => 'sec_home_page',
+			'type'		  => 'number'
+		)
+	);
+
+	$wp_customize->add_setting(
+		'set_lanc_max_col', array(
+			'type'              => 'theme_mod',
+			'default'           => '',
+			'sanitize_callback' => 'absint'
+		)
+	);
+
+	$wp_customize->add_control(
+		'set_lanc_max_col', array(
+			'label'       => 'Produtos Novos - Colunas',
+			'description' => 'Quantidade máxima de colunas',
+			'section'     => 'sec_home_page',
+			'type'		  => 'number'
+		)
+	);
+
+
+	
+	//Visibilidade Produto em Destaque
+	$wp_customize->add_setting(
+		'set_deal_show', array(
+			'type'              => 'theme_mod',
+			'default'           => '',
+			'sanitize_callback' => 'fancy_lab_sanitize_checkbox'
+		)
+	);
+
+	$wp_customize->add_control(
+		'set_deal_show', array(
+			'label'       => 'Mostra Produto em Destaque?',
+			'section'     => 'sec_home_page',
+			'type'		  => 'checkbox'
+		)
+	);
+
+	//Produto em Destaque
+	$wp_customize->add_setting(
+		'set_deal', array(
+			'type'              => 'theme_mod',
+			'default'           => '',
+			'sanitize_callback' => 'absint'
+		)
+	);
+
+	$wp_customize->add_control(
+		'set_deal', array(
+			'label'       => 'Produto em Destaque',
+			'description' => 'Informe o ID',
+			'section'     => 'sec_home_page',
+			'type'		  => 'number'
+		)
+	);
 }
 
 add_action( 'customize_register', 'fancy_lab_customizer' );
+
+function fancy_lab_sanitize_checkbox( $checked ) {
+	return ( (isset($checked) && true == $checked) ? true : false );
+}
